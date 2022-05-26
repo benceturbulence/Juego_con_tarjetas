@@ -221,13 +221,11 @@ newDeckBtn.addEventListener("click", function(){
 
 
 cardCont.addEventListener("click", function(){
-    if(cardDeck.length){
-    console.log("I am clicked")
-    drawNewCard()
-    }
-    else {
 
-    }
+
+        console.log("I am clicked")
+        drawNewCard()
+
 })
 
 
@@ -242,6 +240,7 @@ function getNewCard(){
     cardDeck.splice(randomIndex, 1)
     console.log(cardDeck.length)
     return card
+
 }
 
 function drawNewCard(){

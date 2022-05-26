@@ -56,3 +56,7 @@ main {
     margin-top: 2rem;
     font-family: 'Inter', sans-serif;
 }
+
+option {
+    color: black;
+}

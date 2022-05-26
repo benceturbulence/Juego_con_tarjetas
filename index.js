@@ -1,4 +1,4 @@
-const questionArray = [ 'La mayor lección que has aprendido en tu vida.',
+const questionArrayES = [ 'La mayor lección que has aprendido en tu vida.',
 '¿Cuál es tu recuerdo más divertido?',
 '¿Qué es lo que nunca podías perdonar?',
 '¿Una frase que le haya dolido más en su vida?',
@@ -81,6 +81,88 @@ const questionArray = [ 'La mayor lección que has aprendido en tu vida.',
 '¿Qué crees que te hace mejor hombre?',
 '¿Por cual aspectos crees que es mejor ser hombre?']
 
+const questionArrayHU = [ 'A legnagyobb lecke amit életedben megtanultál.',
+'Mi a legviccesebb emléked?',
+'Mi az amit soha nem tudtál megbocsátani?',
+'Egy mondat amivel a legjobban megbántottak életed során?',
+'Melyik emlékedet törölnéd egy életre?',
+'Kinek tudsz leginkább megnyílni?',
+'Kettő embert vihetsz magaddal egy lakatlan szigetre. Kik azok?',
+'Milyen számodra a tökéletes vasárnap?',
+'Ha most lennél 18 éves, csinálnál bármit máshogy?',
+'Egy tárgy, ami nélkül nem tudnál élni?',
+'Szerinted mi miatt lehet jobb férfinak/nőnek lenni?',
+'Valami, amit másért tettél, és a mai napig jóérzéssel tölt el?',
+'A legjobb tulajdonság egy emberben.',
+'Kinek kellene köszönetet mondanod az életedben és miért?',
+'Egy szóval írd le ahogy ebben a pillanatban érzed magad.',
+'Mi az a munka amit soha nem csinálnál, akármennyi pénzt ajánlanának érte?',
+'Ha utaznál az időben, hova mennél?',
+'Ha csak egyetlenegy emléket tarthatnál meg, mi lenne az?',
+'Ha 24 óra lenne hátra az életedből mivel töltenéd?',
+'Életed legrosszabb napja.',
+'Mit fogsz máshogy csinálni mint a szüleid?',
+'Mi okozta a legnagyobb bánatot az életedben?',
+'Ha egy napra újra kisgyerek lehetnél, mit élveznél benne a legjobban?',
+'Melyik volt a legérdekesebb hely, ahol életedben jártál?',
+'Ha nyernél a lottön, folytatnád a munkát amit csinálsz?',
+'Milyennek képzeled el a tökéletes életet?',
+'Mi volt a legkellemetlenebb dolog, amit mások előtt csináltál?',
+'Ha leülhetnél beszélgetni bárkivel, élő vagy holttal, ki lenne az?',
+'Valami amit még soha nem mondtál el senkinek?',
+'Egy napra kinek a bőrébe bújnál?',
+'Mi az amit elkezdtél, de soha nem fejeztél be és miért?',
+'Mi lehet a legnehezebb a veled valő közös életben?',
+'Mi az amitől félsz is, de ki is próbálnád?',
+'Mi hiányzik az életedből?',
+'Szerinted mi az első benyomása rólad az embereknek?',
+'Életed legboldogabb napja?',
+'Szeretnéd has gyerekeid rád hasonlítanának? has igen, miben?',
+'Szerinted mi miatt lehet jobb nőnek lenni?',
+'Mi az amire sosem sajnálnád a pénzt?',
+'Ha egyetlen egy dolgot változtathatnál meg a múltadban mi lenne az?',
+'Ha király lehetnél, mi lenne az első dolog amin változtatnál az országodban?',
+'Mi az a hazugság amit a legtöbbször mondtál életed során?',
+'Egy kaland amit nagyon irigyeltél egyszer valakitől?',
+'Mi az, amire a kelleténél jóval több időt szánsz?',
+'A nap amit újraélnél.',
+'Ha lehetne egy szuperképességed, mit választanál?',
+'Ha az egész világ hallana egy mondat erejéig, mit mondanál?',
+'Mire vagy a legbüszkébb?',
+'Mi okozta a legnagyobb örömet az életedben?',
+'A legidegesítőbb tulajdonságod.',
+'Ki az, akit nem sajnálnál, has soha többé nem beszélnétek?',
+'Mit kérdeznél egy jóstól?',
+'Mire vam a legnagyobb szükséged jelenleg?',
+'Ha bérmelyik már nem élő rokonodat visszahozhatnád a sírból, ki lenne az?',
+'Kinek az életét tartod irigylésre méltónak az ismerőseid közül?',
+'Min nevettél úgy utoljára, hogy a könnyed is folyt?',
+'A legrosszabb utlajdonság valakiben.',
+'Az érzés, ami a leggyakrabban a hatalmába kerít.',
+'Ha el kellene költöznöd egy másik orszégba, hova mennél?',
+'Kedvenc idézeted.',
+'Ki az akinek minden esetben adsz a véleményére?',
+'Milyen álmodat adtad fel?',
+'A legfontosabb lecke amit a szüleidtől tanultál?',
+'Melyik filmnek vagy könyvnek lennél szívesen a főszereplője?',
+'Hol szeretnél 10 év múlva lenni?',
+'Ha megkérdeznék a barátaidat, a legrosszabb tulajdonságodról szerinted mit válaszolnának?',
+'Hol találsz békére?',
+'Mikor érezted magad igazán szerencsésnek?',
+'Inkább híres vagy gazdag lennél?',
+'Mi volt a legnagyobb pénzkidobás életed során?',
+'Mond el a kettő legfontosabb modnatot magadról.',
+'Mikor sírtál utoljára, és miért?',
+'Szégyenlted magad valaha mások helyett? Mikor és miért?',
+'Ha kapnál egy repülőjegyet amivel bárhova mehetnél. Hova mennél?',
+'Mi a legnagyobb vágyad, amiről még senkinek sem meséltél?',
+'Mi a legkorábbi gyerekkori emléked?',
+'Milyen címet adnál a jelenlegi fejezetnek az életedben?',
+'Mit kellene tudnia rőlad az embereknek amit jelenleg nem tudnak?',
+'A legnagyobb félelmed.',
+'Mi az smit nehezen ismersz be magaddal kapcsolatban.',
+'Szerinted mi miatt lehet jobb férfinak lenni?' ]
+
 
 let cardDeck
 
@@ -91,11 +173,19 @@ const newDeckBtn = document.getElementById("new_deck_btn")
 const cardCont = document.getElementById("card_container")
 
 
-
+function getLanguage(){
+    let languageInput = document.getElementById("languageOption").value;
+    document.getElementById("languageOption").style.display = "none"
+    return languageInput
+}
 
 function newDeck(){
     let deck = Array() 
-    for (let i of questionArray){
+
+    if (getLanguage()==="spanish"){
+        console.log("you chose spanish")
+
+    for (let i of questionArrayES){
         console.log(i)
         deck.push(i)
     }
@@ -104,6 +194,21 @@ function newDeck(){
     cardDeck = deck
     cardEl.innerHTML = ""
     cardLeft.innerHTML = `Cards left  ${deck.length}`
+}
+
+else {
+    for (let i of questionArrayHU){
+        console.log(i)
+        deck.push(i)
+    }
+    console.log("We have a new deck")
+
+    cardDeck = deck
+    cardEl.innerHTML = ""
+    cardLeft.innerHTML = `Cards left  ${deck.length}`
+}
+
+languageOption
 }
 
 

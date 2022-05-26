@@ -12,7 +12,8 @@ body {
 
 main {
     margin: 0 auto;
-    width: 90%
+    width: 90%;
+    max-width: 500px;
 }
 
 .card_container {

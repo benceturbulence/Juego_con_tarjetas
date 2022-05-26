@@ -1,0 +1,56 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 4rem;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(120deg,#34ace0, #f7f1e3) ;
+}
+
+main {
+    margin: 0 auto;
+    width: 90%
+}
+
+.card_container {
+    border: 1px solid black;
+    background-image: url('images/circle.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    aspect-ratio: 9/16;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+#card_text {
+    width: 90%;
+    text-align: center;
+    font-size: 1.5rem;
+    backdrop-filter: blur(.2px);
+    font-weight: 700;
+}
+
+
+#card_left {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#new_deck_btn {
+    outline: 0;
+    width: 100%;
+    padding: .4rem 1rem;
+    border-radius: .5rem;
+    border: none;
+    border: 1px solid black;
+    background-color: #fff;
+    margin-top: 2rem;
+    font-family: 'Inter', sans-serif;
+}
